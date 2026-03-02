@@ -12,5 +12,23 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
-  }
+  },
+  modules: [
+    {
+      resolve: "@medusajs/medusa/payment",
+      options: {
+        providers: [
+          {
+            resolve: "medusa-payu-payment-plugin/providers/payu",
+            id: "payu",
+            options: {
+              merchantKey: process.env.PAYU_MERCHANT_KEY,
+              merchantSalt: process.env.PAYU_MERCHANT_SALT,
+              environment: process.env.PAYU_ENVIRONMENT || "test",
+            },
+          },
+        ],
+      },
+    },
+  ],
 })
