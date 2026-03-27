@@ -72,6 +72,38 @@ module.exports = defineConfig({
         ],
       },
     },
+    {
+      resolve: "@medusajs/medusa/notification",
+      options: {
+        providers: [
+          // Default provider
+          {
+            resolve: "@medusajs/medusa/notification-local",
+            id: "local",
+            options: {
+              name: "Local Notification Provider",
+              channels: ["feed"],
+            },
+          },
+          // Nodemailer provider
+          {
+            resolve: "@perseidesjs/notification-nodemailer/providers/nodemailer",
+            id: "nodemailer",
+            options: {
+              from: process.env.NOTIFICATION_PROVIDER_FROM,
+              channels: ["email"],
+              host: process.env.SMTP_HOST,
+              port: process.env.SMTP_PORT,
+              secure: true,
+              auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS
+              }
+            },
+          },
+        ],
+      },
+    },
   ],
   admin: {
     vite: () => {

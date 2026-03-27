@@ -26,9 +26,11 @@
     "@medusajs/cli": "2.13.1",
     "@medusajs/framework": "2.13.1",
     "@medusajs/medusa": "2.13.1",
+    "@perseidesjs/notification-nodemailer": "^3.1.1",
     "@tax1driver/medusa-payu": "^1.0.0",
     "@techlabi/medusa-marketplace-plugin": "^0.58.0",
-    "medusa-payu-payment-plugin": "^1.3.6"
+    "medusa-payu-payment-plugin": "^1.3.6",
+    "nodemailer": "^8.0.4"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.13.1",
